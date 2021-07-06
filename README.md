@@ -29,8 +29,8 @@ Setup using the following snippet, e.g. in your MyApplication.kt onCreate method
 
 ```kotlin
 OneTwoThreeSDKService.initialize(
-            isProduction = false,
-            checkSumKey = "", 
+            isProduction = false, // Use in production or not
+            checkSumKey = "", // Checksum key
             publicKey = "", // Public key
             privateKey = "", // Private key
             passphrase = "", // Passphrase for private key
