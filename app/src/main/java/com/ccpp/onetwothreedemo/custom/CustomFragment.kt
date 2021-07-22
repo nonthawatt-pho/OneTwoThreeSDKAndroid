@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ccpp.onetwothreedemo.constant.Constants
 import com.ccpp.onetwothreedemo.databinding.FragmentCustomBinding
 import com.ccpp.onetwothreedemo.util.LoadingDialog
 import com.ccpp.onetwothreedemo.util.showErrorDialog
@@ -69,10 +70,12 @@ class CustomFragment : Fragment() {
     }
 
     private fun setCustomValue() {
+
+        // TODO: Add information for Confirm
         merchant = Merchant(
-            id = "",
-            redirectURL = "",
-            notificationURL = "",
+            id = "merchant@shopping.com",
+            redirectURL = Constants.appScheme,
+            notificationURL = "https=//uat2.123.co.th/DemoShopping/apicallurl.aspx",
             merchantData = listOf(
                 MerchantData(item = ""),
                 MerchantData(item = ""),
@@ -86,7 +89,7 @@ class CustomFragment : Fragment() {
             preferredAgent = "",
             productDesc = "Description of the product.",
             amount = "1",
-            currencyCode = "",
+            currencyCode = "THB",
             paymentInfo = "",
             paymentExpiry = ""
         )
@@ -94,7 +97,7 @@ class CustomFragment : Fragment() {
         buyer = Buyer(
             email = "",
             mobile = "",
-            language = "",
+            language = "EN",
             notifyBuyer = true,
             title = "",
             firstName = "",

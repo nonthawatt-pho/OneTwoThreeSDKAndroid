@@ -5,13 +5,13 @@ import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ccpp.onetwothreedemo.R
+import com.ccpp.onetwothreedemo.constant.Constants
 import com.ccpp.onetwothreedemo.model.Product
 import com.ccpp.onetwothreedemo.util.liveEvent
 import com.ccpp.onetwothreesdk.callback.APIResponseCallback
 import com.ccpp.onetwothreesdk.core.OneTwoThreeSDKService
 import com.ccpp.onetwothreesdk.model.Buyer
 import com.ccpp.onetwothreesdk.model.Merchant
-import com.ccpp.onetwothreesdk.model.MerchantData
 import com.ccpp.onetwothreesdk.model.Transaction
 import com.ccpp.onetwothreesdk.model.response.StartDeeplinkResponse
 import com.google.gson.Gson
@@ -64,24 +64,22 @@ class DetailViewModel : ViewModel() {
     fun pay() {
         isInProgress.value = true
 
+        // TODO: Add information for PAY
         val merchant = Merchant(
-            id = "",
-            redirectURL = "",
-            notificationURL = "",
+            id = "merchant@shopping.com",
+            redirectURL = Constants.appScheme,
+            notificationURL = "https=//uat2.123.co.th/DemoShopping/apicallurl.aspx",
             merchantData = listOf(
-                MerchantData(item = ""),
-                MerchantData(item = ""),
-                MerchantData(item = ""),
-                MerchantData(item = "")
+//                MerchantData(item = ""),
             )
         )
 
         val transaction = Transaction(
             merchantReference = UUID.randomUUID().toString().replace("-", "").substring(0,11),
-            preferredAgent = paymentMethod.value!!.name,
-            productDesc = product?.desc.toString(),
-            amount = product?.amount ?: "0.00",
-            currencyCode = "",
+            preferredAgent = "",
+            productDesc = "Description of the product.",
+            amount = "1",
+            currencyCode = "THB",
             paymentInfo = "",
             paymentExpiry = ""
         )
@@ -89,7 +87,7 @@ class DetailViewModel : ViewModel() {
         val buyer = Buyer(
             email = "",
             mobile = "",
-            language = "",
+            language = "EN",
             notifyBuyer = true,
             title = "",
             firstName = "",

@@ -45,41 +45,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                <TextView
-                        android:id="@+id/title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/production"
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginVertical="24dp"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/darkGreenColor"
-                        app:layout_constraintHorizontal_bias="0"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.appcompat.widget.SwitchCompat
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="20dp"
-                        android:checked="@{viewModel.isProduction}"
-                        android:onClick="@{() -> viewModel.switchProduction()}"
-                        app:layout_constraintBottom_toBottomOf="@+id/title"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/title" />
-
-                <View
-                        android:id="@+id/divider"
-                        android:layout_width="0dp"
-                        android:layout_height="0.5dp"
-                        android:layout_margin="20dp"
-                        android:background="#707070"
-                        app:layout_constraintTop_toBottomOf="@id/title"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent" />
-
                 <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/customList"
                         android:layout_width="match_parent"
@@ -88,7 +53,7 @@
                         android:nestedScrollingEnabled="true"
                         tools:listitem="@layout/custom_item"
                         app:layout_constraintVertical_bias="0"
-                        app:layout_constraintTop_toBottomOf="@id/divider"
+                        app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"/>
