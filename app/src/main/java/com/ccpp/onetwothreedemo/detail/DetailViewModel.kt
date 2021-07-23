@@ -12,10 +12,10 @@ import com.ccpp.onetwothreesdk.callback.APIResponseCallback
 import com.ccpp.onetwothreesdk.core.OneTwoThreeSDKService
 import com.ccpp.onetwothreesdk.model.Buyer
 import com.ccpp.onetwothreesdk.model.Merchant
+import com.ccpp.onetwothreesdk.model.MerchantData
 import com.ccpp.onetwothreesdk.model.Transaction
 import com.ccpp.onetwothreesdk.model.response.StartDeeplinkResponse
 import com.google.gson.Gson
-import java.util.*
 
 enum class PaymentType {
     SCB, BAY, BBL
@@ -68,30 +68,33 @@ class DetailViewModel : ViewModel() {
         val merchant = Merchant(
             id = "merchant@shopping.com",
             redirectURL = Constants.appScheme,
-            notificationURL = "https=//uat2.123.co.th/DemoShopping/apicallurl.aspx",
+            notificationURL = "https://uat2.123.co.th/DemoShopping/apicallurl.aspx",
             merchantData = listOf(
-//                MerchantData(item = ""),
+                MerchantData(item = "943-cnht302gg"),
+                MerchantData(item = "FH403"),
+                MerchantData(item = "10,000.00"),
+                MerchantData(item = "Ref. 43, par. 7")
             )
         )
 
         val transaction = Transaction(
-            merchantReference = UUID.randomUUID().toString().replace("-", "").substring(0,11),
-            preferredAgent = "",
+            merchantReference = "309321249653",
+            preferredAgent = "SCB",
             productDesc = "Description of the product.",
-            amount = "1",
+            amount = "100",
             currencyCode = "THB",
             paymentInfo = "",
-            paymentExpiry = ""
+            paymentExpiry = "2021-12-10 11:21:36"
         )
 
         val buyer = Buyer(
-            email = "",
-            mobile = "",
+            email = "example@gmail.com",
+            mobile = "09912345678",
             language = "EN",
             notifyBuyer = true,
-            title = "",
-            firstName = "",
-            lastName = ""
+            title = "Mr",
+            firstName = "Bruce",
+            lastName = "Wayne"
         )
 
         /// Unit test with synchronous style
