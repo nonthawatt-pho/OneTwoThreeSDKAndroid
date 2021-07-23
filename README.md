@@ -29,7 +29,6 @@ Setup using the following snippet, e.g. in your MyApplication.kt onCreate method
 
 ```kotlin
 OneTwoThreeSDKService.initialize(
-            isProduction = false, // Use in production or not
             checkSumKey = "", // Checksum key
             publicKey = "", // Public key
             privateKey = "", // Private key
@@ -42,36 +41,36 @@ OneTwoThreeSDKService.initialize(
 
 ```kotlin
 
-merchant = Merchant(
-    id = "",
-    redirectURL = "",
-    notificationURL = "",
+val merchant = Merchant(
+    id = "merchant@shopping.com",
+    redirectURL = "onetwothreeapp://",
+    notificationURL = "https://uat2.123.co.th/DemoShopping/apicallurl.aspx",
     merchantData = listOf(
-        MerchantData(item = ""),
-        MerchantData(item = ""),
-        MerchantData(item = ""),
-        MerchantData(item = "")
+        MerchantData(item = "943-cnht302gg"),
+        MerchantData(item = "FH403"),
+        MerchantData(item = "10,000.00"),
+        MerchantData(item = "Ref. 43, par. 7")
     )
 )
 
-transaction = Transaction(
-    merchantReference = UUID.randomUUID().toString().replace("-", "").substring(0,11),
-    preferredAgent = "",
+val transaction = Transaction(
+    merchantReference = "309321249653",
+    preferredAgent = "SCB",
     productDesc = "Description of the product.",
-    amount = "1.00",
-    currencyCode = "",
+    amount = "100",
+    currencyCode = "THB",
     paymentInfo = "",
-    paymentExpiry = ""
+    paymentExpiry = "2021-12-10 11:21:36"
 )
 
-buyer = Buyer(
-    email = "",
-    mobile = "",
-    language = "",
+val buyer = Buyer(
+    email = "example@gmail.com",
+    mobile = "09912345678",
+    language = "EN",
     notifyBuyer = true,
-    title = "",
-    firstName = "",
-    lastName = ""
+    title = "Mr",
+    firstName = "Bruce",
+    lastName = "Wayne"
 )
 
 OneTwoThreeSDKService.startDeeplink(merchant, transaction, buyer, object :
